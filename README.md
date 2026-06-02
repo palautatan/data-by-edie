@@ -1,7 +1,7 @@
 # Data By Edie
 Repository of all code used for my site <a href='https://www.databyedie.com/'>DataByEdie.com</a>.
 
-Spoiler: None of my Jupyter notebooks have been cleaned. :)
+**Spoiler:** None of my Jupyter notebooks have been cleaned. :) Behind every short story is *lots* of exploratory analyses and modeling. However, just because the model was made doesn't mean that it speaks volumes. Therefore, you will see lots of supplementary material here.
 
 ## Project List
 | # | Project | Blurb | Link | Notebook |
