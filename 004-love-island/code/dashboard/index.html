@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Villa — audience discussion</title>
+    <style>__STYLES__</style>
+    <script>__PLOTLY__</script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <p class="eyebrow">LOVE ISLAND · AUDIENCE DISCUSSION</p>
+        <h1>The Villa, in conversation<span>.</span></h1>
+        <p class="subtitle">Explore who gets talked about, together — and how that changes.</p>
+      </div>
+      <div class="header-note">
+        Reddit co-mentions<br>
+        <b>Overall + 35 episodes</b>
+      </div>
+    </header>
+    
+    <main>
+      <p id="build-notice" role="status">This is the dashboard template. <a href="../../viz/dashboard/index.html">Open the built dashboard</a>. After editing, run <code>python code/build_network_dashboard.py</code> from the project folder.</p>
+      <section class="toolbar" aria-label="Network controls">
+        <div class="view-control" role="group" aria-label="Episode view">
+          <span class="control-label">View</span>
+          <div class="view-stepper">
+            <button type="button" id="view-prev" aria-label="Previous episode" disabled>◀</button>
+            <span id="view-text" aria-live="polite" aria-atomic="true">Overall</span>
+            <button type="button" id="view-next" aria-label="Next episode">▶</button>
+          </div>
+        </div>
+
+        <label class="search">
+          Find an islander
+          <select id="islander" aria-label="Find an islander"></select>
+        </label>
+        
+        <!-- Removed "as in 07" from value="0.5" -->
+        <label>
+          Relationships
+          <select id="density">
+            <option value="0.5">Strongest half</option>
+            <option value="0.25">Strongest three quarters</option>
+            <option value="0">All relationships</option>
+            <option value="0.75">Strongest quarter</option>
+          </select>
+        </label>
+        
+        <div class="toggles">
+          <label><input type="checkbox" id="departed"> Include departed / all discussed</label>
+          <label><input type="checkbox" id="focus"> Focus on selected islander</label>
+        </div>
+        
+        <button id="reset">Reset view</button>
+      </section>
+      
+      <div class="workspace">
+        <section class="network-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow" id="view-label">OVERALL</p>
+              <h2>Shared discussion</h2>
+            </div>
+            <div id="counts" aria-live="polite"></div>
+          </div>
+          
+          <div id="network" aria-label="Interactive islander co-mention network"></div>
+          
+          <div class="network-footer">
+            <span>Click a name to explore · click a line for its tone · scroll to zoom · drag to pan</span>
+            <span>Size = comments · color = overall community</span>
+          </div>
+          <p class="fine-print">Positions are a network layout, not measured axes. An edge means shared discussion, not a romantic relationship. Edge filters never remove unconnected nodes.</p>
+        </section>
+        
+        <aside class="sidebar" aria-label="Islander details">
+          <div class="identity">
+            <p class="eyebrow">ISLANDER SPOTLIGHT</p>
+            <h2 id="selected-name"></h2>
+            <p id="selected-scope"></p>
+          </div>
+          
+          <div id="metrics"></div>
+          
+          <section class="side-section">
+            <h3>Connections</h3>
+            <p class="muted">Ranked from all relationships in this view, before the strength filter.</p>
+            <div id="connections"></div>
+            <div id="edge-detail" aria-live="polite"></div>
+          </section>
+          
+          <section class="side-section">
+            <div class="chart-heading">
+              <h3>Across the season</h3>
+              <!-- Added Kalshi to trend selector -->
+              <select id="trend" aria-label="Trend metric">
+                <option value="sentiment">Sentiment z-score</option>
+                <option value="comments">Comment count</option>
+                <option value="exit">Next-episode exit %</option>
+                <option value="kalshi">Kalshi price (¢)</option>
+              </select>
+            </div>
+            <div id="trend-chart"></div>
+            <p class="muted" id="trend-note"></p>
+          </section>
+          
+          <details id="models">
+            <summary>Experimental models <span>Explore estimates</span></summary>
+            <div class="model-content">
+              <p class="model-warning">Exploratory results, not validated forecasts. The logistic model did not beat the historical-rate baseline.</p>
+              <div id="model-cards"></div>
+              <div id="survival-chart"></div>
+              <p class="muted">Cox: fitted using the full season and fixed early-discussion features, conditional on reaching tenure 1. Kaplan–Meier: unadjusted whole-cast survival from entrance. These curves have different starting conditions; neither is a live forecast.</p>
+              <div id="model-quality"></div>
+            </div>
+          </details>
+        </aside>
+      </div>
+      
+      <footer>Built from the saved network in 07 and model results in 08. Discussion metrics are retrospective; prediction inputs use the saved cutoff. Low-volume islanders remain visible.</footer>
+    </main>
+    
+    <script id="dashboard-data" type="application/json">__DATA__</script>
+    <script>__SCRIPT__</script>
+  </body>
+</html>

@@ -3,8 +3,8 @@
 Dep. Variable:           kalshi_price   R-squared:                       0.139
 Model:                            OLS   Adj. R-squared:                  0.089
 Method:                 Least Squares   F-statistic:                     2.773
-Date:                Wed, 21 Oct 2026   Prob (F-statistic):           2.24e-07
-Time:                        18:00:41   Log-Likelihood:                -2865.3
+Date:                Thu, 22 Oct 2026   Prob (F-statistic):           2.24e-07
+Time:                        19:04:55   Log-Likelihood:                -2865.3
 No. Observations:                 675   AIC:                             5807.
 Df Residuals:                     637   BIC:                             5978.
 Df Model:                          37                                         

@@ -1,0 +1,12 @@
+name: shiny
+title: shiny
+username: palautatan
+account: palautatan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 18374161
+bundleId: 12785277
+url: https://palautatan.shinyapps.io/shiny/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
